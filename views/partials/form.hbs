@@ -1,0 +1,125 @@
+<form action="/booking" method="post">
+  <div class="mb-3">
+    <div class="input-group">
+      <div
+        class="d-flex align-items-center bg-light text-body rounded-start p-2"
+      >
+        <span class="fas fa-user"></span>
+        <span class="ms-1">Name</span>
+      </div>
+      <input
+        class="form-control {{#if errorMessage.name}}border-danger border-5{{/if}}"
+        type="text"
+        name="name"
+        placeholder="Enter Full Name"
+         value="{{data.name}}"
+        aria-label="Enter Full Name"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <div class="input-group">
+        <div
+          class="d-flex align-items-center bg-light text-body rounded-start p-2"
+        >
+          <span class="fas fa-envelope"></span>
+          <span class="ms-1">Email</span>
+        </div>
+        <input
+          class="form-control {{#if errorMessage.email}}border-danger border-5{{/if}}"
+          type="text"
+          name="email"
+          placeholder="Enter Email Address"
+          aria-label="Enter Email Address"
+          value="{{data.email}}"
+        />
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <div class="input-group">
+        <div
+          class="d-flex align-items-center bg-light text-body rounded-start p-2"
+        >
+          <span class="fas fa-phone"></span>
+          <span class="ms-1">Phone</span>
+        </div>
+        <input
+          class="form-control {{#if errorMessage.phone}}border-danger border-5{{/if}}"
+          type="text"
+          name="phone"
+          placeholder="Enter Phone Number"
+          aria-label="Enter Phone Number"
+          value="{{data.phone}}"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-12">
+      <div class="input-group">
+        <div
+          class="d-flex align-items-center bg-light text-body rounded-start p-2"
+        >
+          <span class="fas fa-map-marker-alt"></span>
+          <span class="ms-1">Pick Up</span>
+        </div>
+        <input
+          class="form-control {{#if errorMessage.pickup}}border-danger border-5{{/if}}"
+          type="text"
+          name="pickup"
+          placeholder="Enter pickup location"
+          aria-label="Enter pickup location"
+          value="{{data.pickup}}"
+        />
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="input-group">
+        <div
+          class="d-flex align-items-center bg-light text-body rounded-start p-2"
+        >
+          <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
+        </div>
+        <input
+          class="form-control {{#if errorMessage.drop}}border-danger border-5{{/if}}"
+          type="text"
+          name="drop"
+          placeholder="Enter drop of location"
+          aria-label="Enter drop of location"
+          value="{{data.drop}}"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <select
+        class="form-select {{#if errorMessage.car}}border-danger border-5{{/if}}"
+        name="car"
+        aria-label="Default select example"
+      >
+        <option value="">Select Your Car type</option>
+        {{#each cars}}
+          <option value="{{name}}">{{name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <input type="hidden" name="page" value="{{title}}">
+    <div class="col-md-6">
+      <div class="input-group">
+        <div
+          class="d-flex align-items-center bg-light text-body rounded-start p-2"
+        >
+          <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up
+            Date</span>
+        </div>
+        <input class="form-control {{#if errorMessage.pickupDate}}border-danger border-5{{/if}}" name="pickupDate" type="date" value="{{pickupDate}}"/>
+      </div>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-light w-100 py-2">Book Now</button>
+    </div>
+  </div>
+</form>
